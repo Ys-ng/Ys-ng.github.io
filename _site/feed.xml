@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ys-ng.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ys-ng.github.io/" rel="alternate" type="text/html" /><updated>2021-05-13T16:54:40+09:00</updated><id>https://ys-ng.github.io/feed.xml</id><title type="html">Ys_ng</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">My first Test</title><link href="https://ys-ng.github.io/processing/2021/05/12/first-post.html" rel="alternate" type="text/html" title="My first Test" /><published>2021-05-12T00:00:00+09:00</published><updated>2021-05-12T00:00:00+09:00</updated><id>https://ys-ng.github.io/processing/2021/05/12/first-post</id><content type="html" xml:base="https://ys-ng.github.io/processing/2021/05/12/first-post.html">&lt;p&gt;Testing Text!!!!!!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ys-ng.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ys-ng.github.io/" rel="alternate" type="text/html" /><updated>2021-05-18T10:13:37+09:00</updated><id>https://ys-ng.github.io/feed.xml</id><title type="html">Ys_ng</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">My first Test</title><link href="https://ys-ng.github.io/processing/2021/05/12/first-post.html" rel="alternate" type="text/html" title="My first Test" /><published>2021-05-12T00:00:00+09:00</published><updated>2021-05-12T00:00:00+09:00</updated><id>https://ys-ng.github.io/processing/2021/05/12/first-post</id><content type="html" xml:base="https://ys-ng.github.io/processing/2021/05/12/first-post.html">&lt;p&gt;Testing Text!!!!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;
 
@@ -30,7 +30,42 @@
 
 &lt;h2 id=&quot;boxes&quot;&gt;Boxes&lt;/h2&gt;
 
-&lt;h3 id=&quot;notification&quot;&gt;Notification&lt;/h3&gt;</content><author><name>GitHub User</name></author><category term="processing" /><summary type="html">Testing Text!!!!!!</summary></entry><entry><title type="html">An exhibit of Markdown</title><link href="https://ys-ng.github.io/markdown/2018/12/05/an-exhibit-of-markdown.html" rel="alternate" type="text/html" title="An exhibit of Markdown" /><published>2018-12-05T00:00:00+09:00</published><updated>2018-12-05T00:00:00+09:00</updated><id>https://ys-ng.github.io/markdown/2018/12/05/an-exhibit-of-markdown</id><content type="html" xml:base="https://ys-ng.github.io/markdown/2018/12/05/an-exhibit-of-markdown.html">&lt;p&gt;This note demonstrates some of what &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; is capable of doing.&lt;/p&gt;
+&lt;h3 id=&quot;notification&quot;&gt;Notification&lt;/h3&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src=&quot;https://sciencelove.com/attachment/cfile23.uf@994D3E435C2B1ACB02DF23.js&quot;&gt;&lt;/script&gt;   
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type=&quot;application/processing&quot;&gt;
+int num = 60;
+float mx[] = new float[num];
+float my[] = new float[num];
+
+void setup() {
+  size(640, 360);
+  noStroke();
+  fill(255, 153); 
+}
+
+void draw() {
+  background(51); 
+  
+  int which = frameCount % num;
+  mx[which] = mouseX;
+  my[which] = mouseY;
+  
+  for (int i = 0; i &lt; num; i++) {
+    int index = (which+1 + i) % num;
+    ellipse(mx[index], my[index], i, i);
+  }
+}
+&lt;/script&gt;
+&lt;canvas width=&quot;400&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;</content><author><name>GitHub User</name></author><category term="processing" /><summary type="html">Testing Text!!!!!!</summary></entry><entry><title type="html">An exhibit of Markdown</title><link href="https://ys-ng.github.io/markdown/2018/12/05/an-exhibit-of-markdown.html" rel="alternate" type="text/html" title="An exhibit of Markdown" /><published>2018-12-05T00:00:00+09:00</published><updated>2018-12-05T00:00:00+09:00</updated><id>https://ys-ng.github.io/markdown/2018/12/05/an-exhibit-of-markdown</id><content type="html" xml:base="https://ys-ng.github.io/markdown/2018/12/05/an-exhibit-of-markdown.html">&lt;p&gt;This note demonstrates some of what &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; is capable of doing.&lt;/p&gt;
 
 &lt;h2 id=&quot;an-exhibit-of-markdown&quot;&gt;An exhibit of Markdown&lt;/h2&gt;
 

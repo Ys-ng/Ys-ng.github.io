@@ -522,6 +522,41 @@ function googleTranslateElementInit() {
 
 
 
+<script src="https://sciencelove.com/attachment/cfile23.uf@994D3E435C2B1ACB02DF23.js"></script>   
+
+
+<script type="application/processing">
+int num = 60;
+float mx[] = new float[num];
+float my[] = new float[num];
+
+void setup() {
+  size(640, 360);
+  noStroke();
+  fill(255, 153); 
+}
+
+void draw() {
+  background(51); 
+  
+  int which = frameCount % num;
+  mx[which] = mouseX;
+  my[which] = mouseY;
+  
+  for (int i = 0; i < num; i++) {
+    int index = (which+1 + i) % num;
+    ellipse(mx[index], my[index], i, i);
+  }
+}
+</script>
+<canvas width="400" height="200"></canvas>
+
+
+
+
+
+
+
     </div>
 
 </article>
@@ -531,10 +566,10 @@ function googleTranslateElementInit() {
 <div class="post-related">
       <div>Related Articles</div>
       <ul>
-        <li><a class="post-link" href="/junk/2016/08/12/my-example-post.html" title="">My Example Post</a></li>
-<li><a class="post-link" href="/misc/2016/05/20/super-long-article.html" title="">Some articles are just so long they deserve a really long title...</a></li>
-<li><a class="post-link" href="/processing/2021/05/12/first-post.html" title="">My first Test</a></li>
+        <li><a class="post-link" href="/markdown/2016/01/01/another-test-markdown.html" title="">Another test markdown</a></li>
+<li><a class="post-link" href="/junk/2016/08/12/my-example-post.html" title="">My Example Post</a></li>
 <li><a class="post-link" href="/markdown/2017/06/10/quick-mardown-example.html" title="">Quick markdown example</a></li>
+<li><a class="post-link" href="/junk/2017/05/20/this-post-demonstrates-post-content-styles.html" title="">This post demonstrates post content styles</a></li>
 </ul>
     </div>
 <div class="post-comments"></div></section>
