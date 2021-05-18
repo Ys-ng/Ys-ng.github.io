@@ -49,10 +49,12 @@ void draw() {
   int which = frameCount % num;
   mx[which] = mouseX;
   my[which] = mouseY;
-  
   for (int i = 0; i < num; i++) {
     int index = (which+1 + i) % num;
     ellipse(mx[index], my[index], i, i);
+    if (mousePressed){
+       ellipse(mx[index], my[index], i, i);
+    }
   }
 }
 </script>
