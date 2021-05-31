@@ -10,14 +10,17 @@ POM ( Project Object Model )
 POM은 프로젝트의 구조와 내용을 설명하고 있으며 pom.xml 파일에 프로젝트 관리 및 빌드에 필요한 환경 설정, 의존성 관리 등의 정보들을 기술합니다.
 
 태그정리
-
+```xml
 <modelVersion>4.0.0</modelVersion>
+```
 POM모델 버전
-
+```html
 <groupId>com.yangs</groupId>
+```
 화사나 제작사 프로젝트 이름
-
+```
 <artifactId>Test</artifactId>
+```
 프로젝트에 할당된 고유이름
 
 <name>Test</name>
