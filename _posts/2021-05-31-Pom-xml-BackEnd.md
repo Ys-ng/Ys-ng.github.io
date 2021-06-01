@@ -6,10 +6,17 @@ categories: BackEnd
 tage: Spring
 ---
 
-POM ( Project Object Model )
+## POM ( Project Object Model )
 POM은 프로젝트의 구조와 내용을 설명하고 있으며 pom.xml 파일에 프로젝트 관리 및 빌드에 필요한 환경 설정, 의존성 관리 등의 정보들을 기술합니다.
 
-태그정리
+## XML( eXtensible Markup Language )
+XML은 데이터 저장과 전송을 목적으로 만들어진 마크업 언어이다. HTML과 달리 정해진 태그를 쓰지않고 사용자가 태그를 정의해서 사용할수있다.
+특정 어플리케이션에 종속되어있지 않고, 데이터를 가지고있을뿐 어떤 작동을 하는것은 아니다.
+
+
+
+
+## 태그정리
 ```xml
 <modelVersion>4.0.0</modelVersion>
 ```
@@ -63,8 +70,8 @@ POM모델 버전
 	<version>${org.springframework-version}</version>
 </dependency>
 ```
-라이브러리 정보. 그룹ID, 아티팩트ID, 버전, 범위를 포함. <dependencies>태그안에 있어야한다.
-이 정보들은 https://mvnrepository.com/ 여기서 검색한다(위 예시https://mvnrepository.com/artifact/org.springframework/spring-context/5.2.15.RELEASE)
+라이브러리 정보. 그룹ID, 아티팩트ID, 버전, 범위를 포함.  `dependencies` 태그안에 있어야한다.
+이 정보들은 https://mvnrepository.com/ 여기서 검색한다(위 예시 https://mvnrepository.com/artifact/org.springframework/spring-context/5.2.15.RELEASE)
 
 
 
