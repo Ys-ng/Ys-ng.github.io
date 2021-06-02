@@ -17,16 +17,16 @@ Spring MVC는 mvc 패턴기반의 웹 프레임워크다.
 * 변경이 일어나면 처리방법을 구현해야한다
 
 {: .box-Dao}
-### Dao (Data Access Object)
+### Dao 
+(Data Access Object)
 DB를 사용해 데이터를 조회하거나 조작하는 기능을 담당하는 것들을 DAO라고 부른다. domain logic(DB와 관련없는 코드들)을 persistence mechanism과 분리하기 위해 사용한다. 
 
 UserDao.java
----java
 
+---JAVA
 public interface UserDao {
     /**
      * user 테이블에서 모든 유저의 정보를 가져온다.
-     * 
      * @return 모든 유저의 정보
      */
     public List<User> getUsers();
@@ -34,7 +34,8 @@ public interface UserDao {
 ---
 
 UserDaoImpl.java
----java
+
+---Java
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
     @Override
@@ -53,7 +54,8 @@ public class UserDaoImpl implements UserDao {
 ---
 
 {: .box-Dto}
-### Dto (Data Transfer Object)
+### Dto 
+(Data Transfer Object)
 VO(Value Object)라고도 표현함, 계층간 데이터 교환을 위한 Java Beans. 보통 로직을 가지고 있지 않고 data와 그 data에 접근을 위한 getter, setter만 가지고 있다.
 Database에서 Data를 얻어 Service나 Controller 등으로 보낼 때 사용하는 객체를 말한다. 
 ---java
