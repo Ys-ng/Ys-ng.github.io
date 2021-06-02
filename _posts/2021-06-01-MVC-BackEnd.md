@@ -10,8 +10,8 @@ tags: [backend, mvc, spring]
 Spring MVC는 mvc 패턴기반의 웹 프레임워크다.
 
 
-## Model
-어플리케이션 정보, 데이터 처리관리. Dao, Dto, Service로 나눌수 있다
+> ## Model
+> 어플리케이션 정보, 데이터 처리관리. Dao, Dto, Service로 나눌수 있다
 * 사용자가 사용하는 모든 데이터 정보를 가지고있는 컴포넌트이며, View나 Controller의 어떤 정보도 알수없어야한다.
 * DB 와 연동하여 사용자가 입력한 데이터나 출력할 데이터를 다룬다
 * 변경이 일어나면 처리방법을 구현해야한다
@@ -23,7 +23,7 @@ DB를 사용해 데이터를 조회하거나 조작하는 기능을 담당하는
 
 UserDao.java
 
----JAVA
+~~~java
 public interface UserDao {
     /**
      * user 테이블에서 모든 유저의 정보를 가져온다.
@@ -31,11 +31,11 @@ public interface UserDao {
      */
     public List<User> getUsers();
 }
----
+~~~
 
 UserDaoImpl.java
 
----Java
+~~~java
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
     @Override
@@ -51,14 +51,14 @@ public class UserDaoImpl implements UserDao {
         return result;
     }
 }
----
+~~~
 
 {: .box-Dto}
 ### Dto 
 (Data Transfer Object)
 VO(Value Object)라고도 표현함, 계층간 데이터 교환을 위한 Java Beans. 보통 로직을 가지고 있지 않고 data와 그 data에 접근을 위한 getter, setter만 가지고 있다.
 Database에서 Data를 얻어 Service나 Controller 등으로 보낼 때 사용하는 객체를 말한다. 
----java
+~~~java
 public class User {
     private String name;
     private int age;
@@ -85,13 +85,13 @@ public class User {
         return "name='" + name + "', age=" + age;
     }
 }
----
+~~~
 
 
 {: .box-Service}
 ### Service
 Service는 비지니스 로직이 들어가는 부분이다. Controller가 Request를 받으면 적절한 Service에 전달하고, 전달 받은 Service는 비즈니스 로직을 처리한다. DAO로 데이터베이스를 접근하고, DTO로 데이터를 전달받은 다음, 적절한 처리를 해 반환한다.
----java
+~~~java
 public interface UserService {
     /**
      * 유저 정보를 텍스트 파일로 저장한다.
@@ -101,9 +101,9 @@ public interface UserService {
      */
     public int saveUsersAsTextFile(String path);
 }
----
+~~~
 
----java
+~~~java
 @Service("userService")
 public class UserServiceImpl implements UserService {
     private static final Logger LOGGER = Logger.getLogger("UserServiceImpl");
@@ -132,11 +132,11 @@ public class UserServiceImpl implements UserService {
         return users.size();
     }
 }
----
+~~~
 위 코드는 DAO로부터 DTO 리스트를 받고, DTO의 리스트를 파일로 저장하는 코드이다. @Autowired annotation으로 userDao bean을 찾아서 연결한 것을 볼 수 있다. (Spring에서는 DI(Dependency Injection, 의존성 주입)이라고 한다.)
 
 Controller에서 서비스 호출은 아래 코드처럼 쓰일 수 있다.
----java
+~~~java
 @Controller
 public class MainController {
     @Autowired
@@ -154,7 +154,7 @@ public class MainController {
         return mv;
     }
 }
----
+~~~
 
 코드 출처 https://lazymankook.tistory.com/30
 
