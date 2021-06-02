@@ -3,7 +3,7 @@ layout: post
 title: pom.xml
 subtitle: BackEnd study
 categories: BackEnd
-tage: [BackEnd]
+tage: [backend, spring]
 ---
 
 ### POM ( Project Object Model )
