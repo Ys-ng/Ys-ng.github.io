@@ -6,8 +6,9 @@ categories: BackEnd
 tags: [backend, mvc, spring]
 ---
 
-### Spring MVC (Model View Controller)
-Spring MVC는 mvc 패턴기반의 웹 프레임워크다.
+### MVC 
+(Model View Controller)
+MVC는 mvc 패턴기반의 웹 프레임워크다.
 
 
 > ## Model
@@ -162,14 +163,14 @@ public class MainController {
 
 
 
-## View
-사용자 인터페이스, 사용자에게 보여짐
+> ## View
+> 사용자 인터페이스, 사용자에게 보여짐
 * Model이 가지고있는 데이터를 저장하면 안된다
 * Model이나 Controller의 정보를 알면 안되며 단순히 표시해주는 역할을 가지고있다
 * 변경이 일어나면 처리방법을 구현해야한다
 
-## Controller
-Model과 View간의 상호동작 조정과 연결
+> ## Controller
+> Model과 View간의 상호동작 조정과 연결
 *Model 또는 View에 대한 정보를 알아야한다
 *model 또는 View의 변경을 인지하여 대처를 해야한다
 
