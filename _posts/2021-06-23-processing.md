@@ -27,7 +27,7 @@ tage: [processing, art]
 
 float t;
 float theta=0f;
-float k = 60f;
+float k = 90f;
 float r = 150;
 
 final float RATE=0.0003;
@@ -60,15 +60,15 @@ void draw()
       if(d < 1)
       {
         //println(mx,my);
-        mx = mx/10 + x1(t);
-        my = my/10 + y1(t);
+        mx = mx/20 + x1(t);
+        my = my/20 + y1(t);
         pmx = x1(t);
         pmy = y1(t);
         
       }
       
       float d2 = dist(mx, my, 0, 0 );
-      strokeWeight(0.05*d2);
+      strokeWeight(0.02*d2);
         if(i == 0 ||i == 7){stroke(255);}
         if(i == 1 ||i == 6){stroke(90,90,90,230);}
         if(i == 2 ||i == 5){stroke(255,50,50);}
@@ -77,8 +77,8 @@ void draw()
         line(mx,my,pmx,pmy);
         //line(mx/2,my/2,pmx/2,pmy/2);
         //line(mx,my,pmx/2,pmy/2);
-        line(mx*1.5-50,my*1.5+50,pmx/3+80,pmy/3+80);//line
-        line(mx*2+50,my*2+50,pmx*2-40,pmy*2-40);
+        line(mx*1.5-50,my*1.5+50,pmx/1.5+30,pmy/1.5+30);//line
+        line(mx*2+50,my*2+50,pmx*3-20,pmy*3-20);
         
         //yellow
         stroke(255,255,0,200);
@@ -86,7 +86,8 @@ void draw()
         line(mx/3+20,my/3+20,15,15);
   
         //white for remove
-        stroke(255,10);
+        stroke(255,5);
+        //fill(0,1);
         line(mx,my,pmx,pmy);
         line(mx/2,my/2,pmx/2,pmy/2);
         strokeWeight(2);
@@ -112,7 +113,6 @@ float y1(float t)
 {
   return cos(t*k)*sin(theta * 60)*r;
 }
-
 
 </script>
 <canvas width="400" height="200"></canvas>
