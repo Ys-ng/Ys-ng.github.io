@@ -30,7 +30,7 @@ final float RATE=0.0003;
 
 void setup()
 {
-  size(800,800);
+  size(600,600);
 }
 
  
@@ -139,7 +139,7 @@ final float RATE=0.0003;
 
 void setup()
 {
-  size(800,800);
+  size(600,600);
 }
 
  
