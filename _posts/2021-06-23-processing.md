@@ -17,12 +17,13 @@ tage: [processing]
 </head>
 <body>
 <script type="application/processing">
+
 float t;
 float theta=0f;
-float k = 190f;
+float k = 60f;
 float r = 150;
 
-final float RATE=0.0005;
+final float RATE=0.0003;
 
 void setup()
 {
@@ -42,24 +43,23 @@ void draw()
   float my = mouseY - height/2;
   float pmx = pmouseX - width/2;
   float pmy = pmouseY - height/2;
-  //println(mx + " "+ my);
     stroke(255);
     for(int i=0;i < 4; i++)
     {
       rotate(i*PI/2);
       strokeWeight(1);
       float d = dist(mx,my,pmx,pmy);
-      //float sw = map(d,1,10,10,1);
       if(d < 0.1)
       {
-        mx = x1(t);
-        my = y1(t);
+        println(mx,my);
+        mx = mx/10 + x1(t);
+        my = my/10 + y1(t);
         pmx = x1(t);
         pmy = y1(t);
         
       }
         if(i == 0 ||i == 7){stroke(255);}
-        if(i == 1 ||i == 6){stroke(80,80,80,200);}
+        if(i == 1 ||i == 6){stroke(90,90,90,230);}
         if(i == 2 ||i == 5){stroke(255,50,50);}
         if(i == 3 ||i == 4){stroke(70,92,255);}
         
@@ -78,7 +78,6 @@ void draw()
         stroke(255,10);
         line(mx,my,pmx,pmy);
         line(mx/2,my/2,pmx/2,pmy/2);
-        //line(mx/4,my/4,pmx/4,pmy/4);
         strokeWeight(2);
         rect(mx/4,my/4,pmx/4,pmy);
         rect(mx/8,my/8,pmx*0.5+30,pmy*0.5+30);
@@ -88,7 +87,6 @@ void draw()
         
         rect(mx*3+10,my*3+10,pmx-200,pmy-200);
         rect(mx*4+50,my*4+50,pmx/2-100,pmy/2-100);
-      
     }
     t += 0.0001;
 }
