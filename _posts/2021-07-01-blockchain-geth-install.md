@@ -188,21 +188,144 @@ INFO [07-01|14:43:15.077] Generating DAG in progress               epoch=0 perce
 ### 이더 송금
 * 첫번째 계정에서 두번째 계정으로 10 이더를 송금
 
-* 첫번째 계정의 이더 단위의 잔액을 확인
-> web3.fromWei(eth.getBalance(eth.accounts[0], "ether")
+첫번째 계정과 두번째 계정의 잔액을 확인
+```cmd
+> web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
 70
-
-* 두번째 계정의 이더 단위의 잔액을 확인
+```
+```cmd
 > web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
 0
+```
 
 #### 송금
 ```cmd
 > eth.sendTransaction({ from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(10, "ether") })
+> personal.unlockAccount(eth.accounts[0])
+> eth.sendTransaction({ from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(10, "ether") })
+WARN [07-01|15:21:12.632] Caller gas above allowance, capping      requested=2,116,240,524 cap=50,000,000
+INFO [07-01|15:21:12.639] Setting new local account                address=0xbc1148161cfEd3731F971e0Ed2121481A7E6B2CD
+INFO [07-01|15:21:12.644] Submitted transaction                    hash=0x52971667f7ab5f44548493b39ccb39ef70808be40350694de4dfc2bc718b5580 from=0xbc1148161cfEd3731F971e0Ed2121481A7E6B2CD nonce=0 recipient=0xa81A2CFCd53f0f032053BB6d41A5A0b06b9Ac17e value=10,000,000,000,000,000,000
+"0x52971667f7ab5f44548493b39ccb39ef70808be40350694de4dfc2bc718b5580"	⇐ 트랜젝션 아이디
+>
+
+```
+
+#### 계정잠금 해제 방법
+```cmd
+> personal.unlockAccount(eth.accounts[0])
+> personal.unlockAccount(eth.accounts[0], "pass0")
+> personal.unlockAccount(eth.accounts[0], "pass0", 0)
+```
+
+#### 계류 중인 트랜잭션을 확인
+```cmd
+> eth.pendingTransactions
+[{
+    blockHash: null,
+    blockNumber: null,
+    from: "0xbc1148161cfed3731f971e0ed2121481a7e6b2cd",
+    gas: 21000,
+    gasPrice: 1000000000,
+    hash: "0x52971667f7ab5f44548493b39ccb39ef70808be40350694de4dfc2bc718b5580",
+    input: "0x",
+    nonce: 0,
+    r: "0x3448f9ef95cf37e19797e48e3d8642607255f2580efd699ebc69b31b1e2a93b",
+    s: "0x2b6a1fde8776e412acb3ab01d49fe0d74a324ab5131f7b5b3f0ea76b5ecb6d6",
+    to: "0xa81a2cfcd53f0f032053bb6d41a5a0b06b9ac17e",
+    transactionIndex: null,
+    type: "0x0",
+    v: "0x41",
+    value: 10000000000000000000
+}]
+>
 
 ```
 
 
+#### 채굴을 통해서 트랜잭션을 처리
+```
+> miner.start(1)
+> eth.pendingTransactions
+```
+
+#### 첫번째 두번째 계정의 잔액을 조회
+```
+> web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+10			⇐ 송금을 통해서 전달된 이더를 확인
+> web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+10			⇐ 송금을 통해서 전달된 이더를 확인
+```
+
+### 블록 길이 조회
+```
+> eth.blockNumber
+21
+
+```
+
+
+#### 첫번째 계정의 잔액
+전체 블록 길이 * 5 이더 - 송금한 10 이더 
+= 21 * 5 - 10 = 95
+
+
+
+
+
+
+#### 트랜잭션의 상태를 확인
+```
+> eth.getTransaction(트랜잭션아이디)
+
+> eth.getTransaction("0x52971667f7ab5f44548493b39ccb39ef70808be40350694de4dfc2bc718b5580")
+{
+  blockHash: "0x77d84c5c765fc28dbd075f00c626231321b82f71a09e2a5b95040af829a15de1",
+  blockNumber: 15,
+  from: "0xbc1148161cfed3731f971e0ed2121481a7e6b2cd",
+  gas: 21000,
+  gasPrice: 1000000000,
+...
+> eth.getBlock(15)
+> eth.getTransaction(eth.getBlock(15).transactions[0])
+
+```
+
+#### 리스트 확인
+```
+> eth.getTransactionReceipt(eth.getBlock(15).transactions[0])
+{
+  blockHash: "0x77d84c5c765fc28dbd075f00c626231321b82f71a09e2a5b95040af829a15de1",
+  blockNumber: 15,
+  contractAddress: null,
+  cumulativeGasUsed: 21000,
+  effectiveGasPrice: 1000000000,
+  from: "0xbc1148161cfed3731f971e0ed2121481a7e6b2cd",
+  gasUsed: 21000,
+  logs: [],
+  logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  root: "0x87a69e27cbad0752577e41980715d63dd06564cbb83f431cef4d3ab3a0df83b2",
+  to: "0xa81a2cfcd53f0f032053bb6d41a5a0b06b9ac17e",
+  transactionHash: "0x52971667f7ab5f44548493b39ccb39ef70808be40350694de4dfc2bc718b5580",
+  transactionIndex: 0,
+  type: "0x0"
+}
+```
+
+#### 두번째 계정에서 세번째 계정으로 5이더를 송금
+**각 계정의 잔액을 확인**
+
+1. 두번째 계정에서 세번째 계정으로 5이더를 송금
+
+
+2. 채굴을 통해서 블록 생성한 후 채굴 중지
+
+
+3. 세번째 계정에 잔액을 확인
+
+4. 두번째 계정에 잔액을 확인
+
+5. 첫번째 계정에 잔액을 확인
 
 
 
